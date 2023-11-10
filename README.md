@@ -10,7 +10,7 @@ This README document serves as an overview and guide for understanding the vario
 4. [Top Performers Sales Report](#top-performers-sales-report)
 5. [Market Standings and Trends](#market-standings-and-trends)
 
-# Product Sales Report 📈
+# [Product Sales Report 📈]
 
 ## Report Fields 📊
 The Product Sales Report includes several key fields, each offering vital insights:
