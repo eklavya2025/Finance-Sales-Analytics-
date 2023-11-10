@@ -20,24 +20,7 @@ The report includes several key fields, each offering vital insights:
 
 6.🧮 Gross Price Total: The total revenue generated, calculated as sold quantity times the gross price per item.
 
-# Table of Contents
-1. [Heading 1](#heading-1)
-2. [Subheading under H1](#subheading-under-h1)
-3. [Heading 2](#heading-2)
-    - [Subheading under H2](#subheading-under-h2)
-4. [Another Heading](#another-heading)
 
-# Heading 1
-Content for heading 1
-
-## Subheading under H1
-Content for the subheading
-
-# Heading 2
-Content for heading 2
-
-### Subheading under H2
-Content for the second-level subheading
 
 # Another Heading
 More content
