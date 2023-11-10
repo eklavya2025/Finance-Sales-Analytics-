@@ -8,7 +8,7 @@ This README document serves as an overview and guide for understanding the vario
 2. [Gross Sales Report](#gross-sales-report)
 3. [Net Sales Report](#net-sales-report)
 4. [Top Performers Sales Report](#top-performers-sales-report)
-5. [Market Standings and Trends](#market-standings-and-trends)
+5. [Sales Performance Insights](#sales-performance-insights)
 
 <a id="product-sales-report"></a>
 # Product Sales Report 📈 
@@ -46,6 +46,7 @@ The methodology for generating the Product Sales Report combines structured SQL 
 5. 💵 **Calculating Gross Pricing**:
    - *Query*: Combining sales data with `fact_gross_price` to compute pricing details.
    - *Purpose*: Determining the gross revenue and understanding pricing strategy impacts.
+     
 [Back to Table of Contents](#table-of-contents)
      
 <a id="gross-sales-report"></a>
