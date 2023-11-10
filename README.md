@@ -46,3 +46,22 @@ The methodology for generating the Product Sales Report combines structured SQL 
    - *Query*: Combining sales data with `fact_gross_price` to compute pricing details.
    - *Purpose*: Determining the gross revenue and understanding pricing strategy impacts.
 
+# Finance-Sales-Analytics README
+
+## Table of Contents
+1. [Product Sales Report](#product-sales-report)
+   ...
+
+## Product Sales Report 📈
+
+### Report Fields 📊
+[...content of the Product Sales Report...]
+
+### Data Sources 🗂️
+[...content of the Product Sales Report's Data Sources...]
+
+### Methodology ⚙️
+[...content of the Product Sales Report's Methodology...]
+
+...
+
