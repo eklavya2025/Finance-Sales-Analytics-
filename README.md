@@ -83,7 +83,8 @@ The Gross Sales Report analysis relies on data from several key tables in a SQL 
 - **Stored Procedures Utilization**: Creation and use of stored procedures like get_monthly_gross_sales_for_customer and get_yearly_gross_sales_for_customer for reusability and operational ease.
 - **Effective Data Organization**: Strategic use of ORDER BY and GROUP BY clauses in SQL queries for correct aggregation and organized presentation of data.
 
-  
+[Back to Table of Contents](#table-of-contents)
+
 <a id="net-sales-report"></a>
 # 📈 Net Sales Report
 
@@ -124,6 +125,7 @@ The data for the Net Sales Report is sourced from a comprehensive SQL database, 
 - **Top Products Analysis 🏭**: Determine most popular and profitable products, gaining insights into product demand and market trends.
 - **Top Customers Analysis 🧑‍💼**: Analyze customer base to understand buying patterns and contributions to sales, crucial for CRM and marketing strategies.
 
+[Back to Table of Contents](#table-of-contents)
   
 <a id="top-performers-sales-report"></a>
 # 📈 Top Performers Sales Report
@@ -166,7 +168,8 @@ The Top Performers Sales Report utilizes data from a collection of tables within
 - **Objective**: Rank markets based on their gross sales within each region.
 - **Methodology**: Apply ranking functions to aggregated gross sales data, highlighting key markets in each region.
 
-  
+ [Back to Table of Contents](#table-of-contents)
+
 <a id="sales-performance-insights"></a>
 # Sales Performance Insights
 
