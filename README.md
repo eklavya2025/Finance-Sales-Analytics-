@@ -10,7 +10,8 @@ This README document serves as an overview and guide for understanding the vario
 4. [Top Performers Sales Report](#top-performers-sales-report)
 5. [Market Standings and Trends](#market-standings-and-trends)
 
-# [Product Sales Report 📈]
+<a id="product-sales-report"></a>
+# Product Sales Report 📈 
 
 ## Report Fields 📊
 The Product Sales Report includes several key fields, each offering vital insights:
@@ -45,7 +46,8 @@ The methodology for generating the Product Sales Report combines structured SQL 
 5. 💵 **Calculating Gross Pricing**:
    - *Query*: Combining sales data with `fact_gross_price` to compute pricing details.
    - *Purpose*: Determining the gross revenue and understanding pricing strategy impacts.
-
+   - 
+<a id="gross-sales-report"></a>
 # Gross Sales Report 📊
 
 ## Data Sources 🗂️
@@ -78,4 +80,140 @@ The Gross Sales Report analysis relies on data from several key tables in a SQL 
 ### Additional SQL Techniques and Processes:
 - **Stored Procedures Utilization**: Creation and use of stored procedures like get_monthly_gross_sales_for_customer and get_yearly_gross_sales_for_customer for reusability and operational ease.
 - **Effective Data Organization**: Strategic use of ORDER BY and GROUP BY clauses in SQL queries for correct aggregation and organized presentation of data.
+  
+<a id="net-sales-report"></a>
+# 📈 Net Sales Report
+
+## Data Source 🗂️
+The data for the Net Sales Report is sourced from a comprehensive SQL database, including several tables with detailed sales information:
+1. **Fact Sales Monthly (fact_sales_monthly)**: Contains monthly sales data such as product codes, sold quantities, and customer codes.
+2. **Dimension Product (dim_product)**: Provides detailed product information, including product codes and variants.
+3. **Fact Gross Price (fact_gross_price)**: Lists gross prices of products, linked to fiscal years and product codes.
+4. **Fact Pre-Invoice Deductions (fact_pre_invoice_deductions)**: Contains data on discounts and deductions applied before finalizing the invoice.
+5. **Dimension Customer (dim_customer)**: Holds customer-related data, including customer codes and market information.
+6. **Fact Post-Invoice Deductions (fact_post_invoice_deductions)**: Details additional deductions applied after invoice issuance.
+
+## Methodology and Steps 🛠️
+### Step 1: Gathering Gross Sales Data 📈
+- **Objective**: Compile initial sales data before any deductions.
+- **Data Elements**: Market, Product Code, Date, Product details, Sold Quantity, Gross Price Per Item, Total Gross Price, Pre-Invoice Discount Percentage.
+- **Tables Used**: fact_sales_monthly, dim_product, fact_gross_price, fact_pre_invoice_deductions, dim_customer.
+- **Focus**: Extract foundational sales data for further analysis.
+
+### Step 2: Net Invoice Sales View 📊
+- **Objective**: Calculate net invoice sales figures after pre-invoice discounts.
+- **Process**: Deduct pre-invoice discounts from gross sales to determine net invoice sales.
+- **Use**: Refine data to represent sales after initial discounts.
+
+### Step 3: Including Post-Invoice Deductions 🧮
+- **Objective**: Incorporate post-invoice deductions into sales data.
+- **Elements**: Post-Invoice Deductions Percentage.
+- **Tables Used**: sales_preinv_discount, fact_post_invoice_deductions.
+- **Purpose**: Refine sales figures by accounting for deductions post invoice issuance.
+
+### Step 4: Final Net Sales View 📉
+- **Objective**: Compile actual net sales figures after all deductions.
+- **Application**: Essential for deep analysis of Top Markets 🌐, Top Products 🏭, and Top Customers 🧑‍💼.
+- **Insight Generation**: Generate actionable insights on highest-performing markets, most profitable products, and most valuable customers.
+
+## Top Reporting Analysis 📊
+- **Top Markets Analysis 🌍**: Identify key markets contributing significantly to sales, understanding regional performance.
+- **Top Products Analysis 🏭**: Determine most popular and profitable products, gaining insights into product demand and market trends.
+- **Top Customers Analysis 🧑‍💼**: Analyze customer base to understand buying patterns and contributions to sales, crucial for CRM and marketing strategies.
+  
+<a id="top-performers-sales-report"></a>
+# 📈 Top Performers Sales Report
+
+## Data Source 🌐
+The Top Performers Sales Report utilizes data from a collection of tables within a sales database:
+- **net_sales**: Contains detailed net sales transactions, foundational for customer and regional sales analysis.
+- **dim_customer**: A customer dimension table with essential customer identifiers and regional information, critical for customer-centric and regional analyses.
+- **fact_sales_monthly**: Includes monthly sales data, pivotal for product performance analysis.
+- **dim_product**: Contains product information, essential for product-related analysis.
+- **gross_sales**: Records gross sales transactions, essential for market gross sales analysis.
+
+## Sections and Methodology 📊
+
+### Section 1: Top 10 Customers by Net Sales Percentage 💼
+- **Data Table**: net_sales, dim_customer
+- **Objective**: Calculate the total net sales for each customer in millions.
+- **Methodology**: Summation of net sales figures from net_sales, linked to customer data in dim_customer.
+- **Objective**: Determine the percentage share of each customer in total net sales.
+- **Methodology**: Use window functions on aggregated data to calculate percentage shares.
+
+### Section 2: Net Sales Percentage Share by Region 🌐
+- **Data Table**: net_sales, dim_customer
+- **Objective**: Aggregate net sales by customer within each region.
+- **Methodology**: Group net sales by customer and region from net_sales and dim_customer.
+- **Objective**: Calculate the percentage share of net sales for each customer by region.
+- **Methodology**: Apply window functions, partitioned by region, on the aggregated regional sales data.
+
+### Section 3: Top Products by Division Based on Quantity Sold 🏆
+- **Data Table**: fact_sales_monthly, dim_product
+- **Objective**: Sum the total quantity sold for each product within each division.
+- **Methodology**: Group and sum sold quantities from fact_sales_monthly, linked with product information in dim_product.
+- **Objective**: Identify the top-selling products within each division.
+- **Methodology**: Use ranking functions on quantity sold data to highlight top products in each division.
+
+### Section 4: Top Markets by Gross Sales in Each Region 🛍️
+- **Data Table**: gross_sales, dim_customer
+- **Objective**: Determine gross sales by market and region, converted to millions.
+- **Methodology**: Sum gross sales from gross_sales, linked with market and regional data in dim_customer.
+- **Objective**: Rank markets based on their gross sales within each region.
+- **Methodology**: Apply ranking functions to aggregated gross sales data, highlighting key markets in each region.
+  
+<a id="sales-performance-insights"></a>
+# Sales Performance Insights
+
+This section provides an overview of the Sales Performance Insights, offering a detailed analysis of key sales metrics and trends. The report is structured into several sections, each highlighting crucial aspects of sales performance.
+
+## Key Sections and Highlights:
+
+### 1. Product Performance
+- **Overview**: Analysis of the highest grossing products.
+- **Key Metrics**: Includes details on the highest gross price per item and the highest grossing product sale.
+
+### 2. Sales Volume Analysis
+- **Insights**: Examining the best-selling products and variants.
+- **Volume Metrics**: Focuses on total units sold, indicating demand and popularity.
+
+### 3. Temporal Sales Trends
+- **Trends Overview**: Information on the highest sales month and year.
+- **Importance**: Presents a clear picture of sales distribution over time, highlighting peak sales periods.
+
+### 4. Market and Customer Insights
+- **Market Analysis**: An in-depth look at market net sales, focusing on the top and lowest performing markets.
+- **Customer Analysis**: Identifying top and lower-tier customers based on net sales, providing insights into customer buying behavior.
+
+### 5. Regional Sales Overview
+- **Regional Focus**: Specialized section on the best-performing region based on net sales percentages.
+- **Customer Dominance**: Examines the influence and dominance of key customers in specific regions.
+
+# Sales Performance Insights
+
+This section provides an overview of the Sales Performance Insights, offering a detailed analysis of key sales metrics and trends. The report is structured into several sections, each highlighting crucial aspects of sales performance.
+
+## Key Sections and Highlights:
+
+### 1. Product Performance
+- **Overview**: Analysis of the highest grossing products.
+- **Key Metrics**: Includes details on the highest gross price per item and the highest grossing product sale.
+
+### 2. Sales Volume Analysis
+- **Insights**: Examining the best-selling products and variants.
+- **Volume Metrics**: Focuses on total units sold, indicating demand and popularity.
+
+### 3. Temporal Sales Trends
+- **Trends Overview**: Information on the highest sales month and year.
+- **Importance**: Presents a clear picture of sales distribution over time, highlighting peak sales periods.
+
+### 4. Market and Customer Insights
+- **Market Analysis**: An in-depth look at market net sales, focusing on the top and lowest performing markets.
+- **Customer Analysis**: Identifying top and lower-tier customers based on net sales, providing insights into customer buying behavior.
+
+### 5. Regional Sales Overview
+- **Regional Focus**: Specialized section on the best-performing region based on net sales percentages.
+- **Customer Dominance**: Examines the influence and dominance of key customers in specific regions.
+
+  
 
