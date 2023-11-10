@@ -46,22 +46,36 @@ The methodology for generating the Product Sales Report combines structured SQL 
    - *Query*: Combining sales data with `fact_gross_price` to compute pricing details.
    - *Purpose*: Determining the gross revenue and understanding pricing strategy impacts.
 
-# Finance-Sales-Analytics README
+# Gross Sales Report 📊
 
-## Table of Contents
-1. [Product Sales Report](#product-sales-report)
-   ...
+## Data Sources 🗂️
+The Gross Sales Report analysis relies on data from several key tables in a SQL database:
+1. **fact_sales_monthly**: Contains detailed sales data on a monthly basis, including product codes, quantities sold, and sales dates, essential for constructing the monthly gross sales report.
+2. **fact_gross_price**: Provides gross price data for different products, used in conjunction with the fact_sales_monthly table to calculate total gross sales.
+3. **dim_customer**: The customer dimension table, crucial for identifying Chroma's specific customer code, used to filter data relevant to Chroma India from the overall sales data.
 
-## Product Sales Report 📈
+## Methodology 📊
 
-### Report Fields 📊
-[...content of the Product Sales Report...]
+### Monthly Sales Report 📅
+1. **Isolating Chroma India's Transactions**:
+   - *Action*: Pinpointing Chroma India's specific transactions within the database.
+   - *SQL Process*: SELECT query on dim_customer, filtering for records resembling 'Chroma' in the Indian market.
+2. **Data Preparation - Joining Sales and Price Data**:
+   - *Action*: Preparing datasets for monthly analysis by merging sales figures with pricing data.
+   - *SQL Process*: JOIN operation between fact_sales_monthly and fact_gross_price, matching product_code and aligning fiscal_year from sales date.
+3. **Computing Monthly Gross Sales**:
+   - *Action*: Calculating total gross sales for each month.
+   - *SQL Process*: SELECT query that aggregates data by multiplying gross_price with sold_quantity, then summing these values monthly.
 
-### Data Sources 🗂️
-[...content of the Product Sales Report's Data Sources...]
+### Yearly Sales Report 🗓️
+1. **Dataset Consolidation for Yearly Analysis**:
+   - *Action*: Consolidating data for an annual sales overview.
+   - *SQL Process*: Joining technique similar to the monthly report, focusing on annual data aggregation.
+2. **Annual Gross Sales Calculation**:
+   - *Action*: Aggregating and calculating total gross sales per fiscal year.
+   - *SQL Process*: SELECT query multiplying sold_quantity by gross_price for each product, summing annually and grouping by fiscal_year.
 
-### Methodology ⚙️
-[...content of the Product Sales Report's Methodology...]
-
-...
+### Additional SQL Techniques and Processes:
+- **Stored Procedures Utilization**: Creation and use of stored procedures like get_monthly_gross_sales_for_customer and get_yearly_gross_sales_for_customer for reusability and operational ease.
+- **Effective Data Organization**: Strategic use of ORDER BY and GROUP BY clauses in SQL queries for correct aggregation and organized presentation of data.
 
