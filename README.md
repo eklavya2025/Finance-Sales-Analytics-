@@ -46,7 +46,8 @@ The methodology for generating the Product Sales Report combines structured SQL 
 5. 💵 **Calculating Gross Pricing**:
    - *Query*: Combining sales data with `fact_gross_price` to compute pricing details.
    - *Purpose*: Determining the gross revenue and understanding pricing strategy impacts.
-   - 
+[Back to Table of Contents](#table-of-contents)
+     
 <a id="gross-sales-report"></a>
 # Gross Sales Report 📊
 
@@ -80,6 +81,7 @@ The Gross Sales Report analysis relies on data from several key tables in a SQL 
 ### Additional SQL Techniques and Processes:
 - **Stored Procedures Utilization**: Creation and use of stored procedures like get_monthly_gross_sales_for_customer and get_yearly_gross_sales_for_customer for reusability and operational ease.
 - **Effective Data Organization**: Strategic use of ORDER BY and GROUP BY clauses in SQL queries for correct aggregation and organized presentation of data.
+
   
 <a id="net-sales-report"></a>
 # 📈 Net Sales Report
@@ -120,6 +122,7 @@ The data for the Net Sales Report is sourced from a comprehensive SQL database, 
 - **Top Markets Analysis 🌍**: Identify key markets contributing significantly to sales, understanding regional performance.
 - **Top Products Analysis 🏭**: Determine most popular and profitable products, gaining insights into product demand and market trends.
 - **Top Customers Analysis 🧑‍💼**: Analyze customer base to understand buying patterns and contributions to sales, crucial for CRM and marketing strategies.
+
   
 <a id="top-performers-sales-report"></a>
 # 📈 Top Performers Sales Report
@@ -161,6 +164,7 @@ The Top Performers Sales Report utilizes data from a collection of tables within
 - **Methodology**: Sum gross sales from gross_sales, linked with market and regional data in dim_customer.
 - **Objective**: Rank markets based on their gross sales within each region.
 - **Methodology**: Apply ranking functions to aggregated gross sales data, highlighting key markets in each region.
+
   
 <a id="sales-performance-insights"></a>
 # Sales Performance Insights
@@ -189,31 +193,4 @@ This section provides an overview of the Sales Performance Insights, offering a 
 - **Regional Focus**: Specialized section on the best-performing region based on net sales percentages.
 - **Customer Dominance**: Examines the influence and dominance of key customers in specific regions.
 
-# Sales Performance Insights
-
-This section provides an overview of the Sales Performance Insights, offering a detailed analysis of key sales metrics and trends. The report is structured into several sections, each highlighting crucial aspects of sales performance.
-
-## Key Sections and Highlights:
-
-### 1. Product Performance
-- **Overview**: Analysis of the highest grossing products.
-- **Key Metrics**: Includes details on the highest gross price per item and the highest grossing product sale.
-
-### 2. Sales Volume Analysis
-- **Insights**: Examining the best-selling products and variants.
-- **Volume Metrics**: Focuses on total units sold, indicating demand and popularity.
-
-### 3. Temporal Sales Trends
-- **Trends Overview**: Information on the highest sales month and year.
-- **Importance**: Presents a clear picture of sales distribution over time, highlighting peak sales periods.
-
-### 4. Market and Customer Insights
-- **Market Analysis**: An in-depth look at market net sales, focusing on the top and lowest performing markets.
-- **Customer Analysis**: Identifying top and lower-tier customers based on net sales, providing insights into customer buying behavior.
-
-### 5. Regional Sales Overview
-- **Regional Focus**: Specialized section on the best-performing region based on net sales percentages.
-- **Customer Dominance**: Examines the influence and dominance of key customers in specific regions.
-
-  
 
